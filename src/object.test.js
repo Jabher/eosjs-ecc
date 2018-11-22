@@ -1,17 +1,16 @@
-
 /* eslint-env mocha */
-const assert = require('assert')
+import assert from 'assert'
 
-const ecc = require('.')
+import ecc from '.'
 
-const {PublicKey, PrivateKey, Signature} = ecc
+const { PublicKey, PrivateKey, Signature } = ecc
 
 describe('Object API', () => {
   const pvt = PrivateKey('5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3')
   const pub = pvt.toPublic()
 
   describe('secp256k1 keys', () => {
-    it('randomKey', function() {
+    it('randomKey', function () {
       this.timeout(1100)
       return PrivateKey.randomKey()
     })
@@ -54,18 +53,6 @@ describe('Object API', () => {
       assert.throws(() => PublicKey(), /Invalid public key/)
     })
   })
-
-  /** @todo secp224r1 */
-  // it('PrivateKey secp224r1', () => {
-  //   const pvt = PrivateKey('PVT_K1_iyQmnyPEGvFd8uffnk152WC2WryBjgTrg22fXQryuGL9mU6qW')
-  //   const pub = pvt.toPublic()
-  //
-  //   assert.equal(
-  //     pub.toString(),
-  //     'PUB_K1_6EPHFSKVYHBjQgxVGQPrwCxTg7BbZ69H9i4gztN9deKTEXYne4',
-  //     'toString'
-  //   )
-  // })
 
   it('Signature', () => {
     const sig = Signature.sign('data', pvt)

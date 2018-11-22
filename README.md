@@ -299,11 +299,11 @@ PrivateKey.randomKey().then(privateKey => privateWif = privateKey.toWif())
 pubkey = PrivateKey.fromString(privateWif).toPublic().toString()
 ```
 
--   [PrivateKey](./src/key_private.js)
--   [PublicKey](./src/key_public.js)
--   [Signature](./src/signature.js)
--   [Aes](./src/aes.js)
--   [key_utils](./src/key_utils.js)
+-   [PrivateKey](src/internals/PrivateKey.ts)
+-   [PublicKey](src/internals/PublicKey.ts)
+-   [Signature](src/internals/signature.ts)
+-   [Aes](src/internals/utils/aes.ts)
+-   [key_utils](src/internals/utils/key_utils.ts)
 -   [config](./src/config.js)
 
 # Browser
